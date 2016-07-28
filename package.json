@@ -1,5 +1,5 @@
 {
-  "name": "express-useragent",
+  "name": "@housing/express-useragent",
   "description": "ExpressJS/Connect/TrinteJS user-agent middleware exposing",
   "version": "0.2.4",
   "homepage": "https://github.com/biggora/express-useragent/",
@@ -58,12 +58,14 @@
     "middleware"
   ],
   "main": "./index.js",
-  "scripts": {
+"scripts": {
     "test": "nodeunit  test/browsers.js test/bots_test.js",
     "express": "node test/express.js",
     "http": "node test/http.js",
     "build": "grunt build",
-    "lint": "make lint"
+    "lint": "make lint",
+    "before-publish": "npm run lint && npm run build",
+    "publish-package": "npm run before-publish; npm version patch; npm publish"
   },
   "directories": {
     "lib": "lib",
